@@ -17,5 +17,11 @@ interface BackAccountInterface
     const STATUS_OPEN = 'OPEN';
     const STATUS_CLOSED = 'CLOSED';
 
-   
+    public function transaction(BankTransactionInterface $transaction): void;
+    public function openAccount(): bool;
+    public function closeAccount(): void;
+    public function getBalance();
+    public function setBalance(float $balance): void;
+    public function getOverdraft(): OverdraftInterface;
+    public function applyOverdraft(OverdraftInterface $overdraft): void;
 }

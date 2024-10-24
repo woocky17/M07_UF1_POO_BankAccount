@@ -11,7 +11,24 @@ use ComBank\Exceptions\InvalidArgsException;
 use ComBank\Exceptions\ZeroAmountException;
 use ComBank\Support\Traits\AmountValidationTrait;
 
-abstract class BaseTransaction
+abstract class BaseTransaction 
 {
-    
+    use AmountValidationTrait;
+    protected float $amount;
+
+    public function __construct(float $amount)
+    {
+        $this->validateAmount($amount);
+        $this->amount = $amount;
+    }
+
+   
+
+    /**
+     * Get the value of amount
+     */ 
+    public function getAmount()
+    {
+        return $this->amount;
+    }
 }

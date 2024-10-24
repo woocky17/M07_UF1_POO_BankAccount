@@ -9,8 +9,9 @@
 
 use ComBank\Bank\Contracts\BackAccountInterface;
 use ComBank\Exceptions\InvalidOverdraftFundsException;
+use ComBank\Bank\BankAccount;
 
-interface BankTransactionInterface
-{
-    
+interface BankTransactionInterface {
+    public function applyTransaction(BankAccount $balance): float;
+
 }

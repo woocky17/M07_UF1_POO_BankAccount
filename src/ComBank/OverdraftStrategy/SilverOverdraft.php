@@ -10,8 +10,17 @@
 /**
  * @description: Grant 100.00 overdraft funds.
  * */
-class SilverOverdraft 
+use ComBank\OverdraftStrategy\Contracts\OverdraftInterface; 
+class SilverOverdraft implements OverdraftInterface
 {
-
+    function isGrantOverdraftFunds ($float): bool {
+        if ($float<- 100) {
+            return false;
+         }
+         return true;       } 
+    
+       function getOverdraftFundsAmount (): float {
+        return 100.0;
+       } 
     
 }
